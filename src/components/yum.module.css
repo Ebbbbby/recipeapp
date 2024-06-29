@@ -1,0 +1,31 @@
+
+.yum_recipe_container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 10px;
+    gap: 12px;
+
+}
+.group{
+
+  font-family: "Pacifico", sans-serif;
+  font-size: 25px;
+  text-decoration: none;
+  color: var(--mainText-color);
+
+}
+@media screen and (max-width: 768px) {
+.yum_recipe_container {
+    grid-template-columns: 1fr;
+    width: 100%;
+     padding: 15px;
+  }
+
+
+}
+@media screen and (max-width: 514px) {
+  .yum_images_container {
+    grid-template-columns: 1fr;
+
+  }
+}

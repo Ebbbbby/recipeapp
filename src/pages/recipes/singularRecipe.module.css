@@ -1,0 +1,137 @@
+.single_recipe_wrapper {
+  max-width: 1000px;
+  margin: 20px auto;
+}
+
+.single_recipe_image {
+  width: 100%;
+
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.single_recipe_image img {
+  width: 70%;
+  border-radius: var(--border-radius);
+}
+
+.single_recipe_info h1 {
+  margin-top: 10px;
+  text-align: center;
+  color: var(--btn-color);
+
+  font-family: "Pacifico", sans-serif;
+}
+
+.single_recipe_info p {
+  margin-top: 10px;
+  line-height: 1.5;
+  font-size: 20px;
+  color: var(--mainText-color);
+}
+.single_recipe_rating {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 20px;
+  color: var(--mainText-color);
+  font-weight: 500;
+  width: 50%;
+  margin: 15px auto;
+}
+.single_recipe_rating div {
+  text-align: center;
+}
+.single_recipe_rating p {
+  font-size: 15px;
+}
+.single_recipe_icon:first-child {
+  color: var(--btn-color);
+  font-weight: 700;
+  font-size: 30px;
+}
+.single_recipe_icon:nth-child() {
+  font-weight: 700;
+  font-size: 30px;
+}
+.single_recipe_ingredients p {
+  line-height: 2;
+  font-size: 20px;
+  color: var(--mainText-color);
+}
+.single_recipe_ingredients h2 {
+  line-height: 2;
+
+  margin-top: 15px;
+  font-family: "Pacifico", sans-serif;
+  font-size: 35px;
+  color: var(--btn-color);
+}
+@media screen and (max-width: 768px) {
+  .single_recipe_info > p {
+    padding: 0 15px;
+  }
+  .single_recipe_ingredients h2,
+  p {
+    padding: 0 15px;
+  }
+  .single_recipe_image img {
+    width: 100%;
+    padding: 0 15px;
+    border-radius: var(--border-radius);
+  }
+  .single_recipe_wrapper {
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 540px) {
+  .single_recipe_info p {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    font-size: 15px;
+    line-height: 1.8;
+    text-decoration: none;
+  }
+  .single_recipe_info h1 {
+    font-size: 22px;
+    padding: 15px;
+  }
+  .single_recipe_ingredients h2 {
+    font-size: 22px;
+    padding: 15px;
+  }
+
+  .single_recipe_ingredients p {
+    font-size: 15px;
+    line-height: 1.8;
+  }
+  .single_recipe_image img {
+    width: 100%;
+    padding: 1px;
+ border-radius: var(--border-radius);
+
+  }
+  .single_recipe_rating {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 20px;
+  color: var(--mainText-color);
+  font-weight: 500;
+  width: 100%;
+  margin: 15px auto;
+}
+.single_recipe_rating div {
+  text-align: center;
+}
+.single_recipe_rating p {
+  font-size: 15px;
+}
+
+}
+
+
