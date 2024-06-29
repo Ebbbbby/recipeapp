@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { AppDispatch, useAppSelector } from "../../store";
 import trending from "../../components/trending/trending.module.css";
 import { Fade } from "react-awesome-reveal";

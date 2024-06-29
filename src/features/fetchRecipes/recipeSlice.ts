@@ -230,7 +230,7 @@ export const getSingleRecipe = createAsyncThunk(
 export const getSimilarRecipes = createAsyncThunk(
   "recipe/getSimilarRecipes ",
   async (params: { id: number; number?: number; limitLicense?: boolean }) => {
-    const { id, number, limitLicense } = params;
+    const { id } = params;
     // const queryParams = new URLSearchParams();
     const response = await axios.get<SimilarRecipeResponse[]>(
       // `https://localhost:3000/recipes/${id}/similar?number=${number}&limitLicense=${limitLicense}`
