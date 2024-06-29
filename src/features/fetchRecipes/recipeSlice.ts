@@ -13,8 +13,8 @@ export const getRandomRecipe = createAsyncThunk(
   "recipe/getRandomRecipe",
   async (): Promise<RecipeList[]> => {
     const response = await axios.get<ApiResponse>(
-      // "https://localhost:3000/recipes/random"
-      `https://api.spoonacular.com/recipes/random?apiKey=${apiKey}`
+      "https://localhost:3000/recipes/random"
+      // `https://api.spoonacular.com/recipes/random?apiKey=${apiKey}`
     );
     const recipe = response.data.recipes;
     return recipe;
@@ -50,8 +50,8 @@ export const getTrendingRecipes = createAsyncThunk(
     }
 
     const response = await axios.get<ApiResponse>(
-      // `https://localhost:3000/recipes/random?number=${number}&include-tags=${includeTags}&includeNution=${includeNutrition}`
-      `https://api.spoonacular.com/recipes/random?${queryParams.toString()}`
+      `https://localhost:3000/recipes/random?number=${number}&include-tags=${includeTags}&includeNution=${includeNutrition}`
+      // `https://api.spoonacular.com/recipes/random?${queryParams.toString()}`
     );
 
     const rep = response.data.recipes;
@@ -88,8 +88,8 @@ export const getPopularRecipes = createAsyncThunk(
     }
 
     const response = await axios.get<ApiResponse>(
-      // `https://localhost:3000/recipes/random?number=${number}&include-tags=${includeTags}&includeNution=${includeNutrition}`
-      `https://api.spoonacular.com/recipes/random?${queryParams.toString()}`
+      `https://localhost:3000/recipes/random?number=${number}&include-tags=${includeTags}&includeNution=${includeNutrition}`
+      // `https://api.spoonacular.com/recipes/random?${queryParams.toString()}`
     );
 
     const rep = response.data.recipes;
@@ -126,8 +126,8 @@ export const getChickenRecipes = createAsyncThunk(
     }
 
     const response = await axios.get<ApiResponse>(
-      // `https://localhost:3000/recipes/random?number=${number}&include-tags=${includeTags}&includeNution=${includeNutrition}`
-      `https://api.spoonacular.com/recipes/random?${queryParams.toString()}`
+      `https://localhost:3000/recipes/random?number=${number}&include-tags=${includeTags}&includeNution=${includeNutrition}`
+      // `https://api.spoonacular.com/recipes/random?${queryParams.toString()}`
     );
 
     const rep = response.data.recipes;
@@ -163,8 +163,8 @@ export const getBudgetFriendlyRecipes = createAsyncThunk(
     }
 
     const response = await axios.get<ApiResponse>(
-      // `https://localhost:3000/recipes/random?number=${number}&include-tags=${includeTags}&includeNution=${includeNutrition}`
-      `https://api.spoonacular.com/recipes/random?${queryParams.toString()}`
+      `https://localhost:3000/recipes/random?number=${number}&include-tags=${includeTags}&includeNution=${includeNutrition}`
+      // `https://api.spoonacular.com/recipes/random?${queryParams.toString()}`
     );
 
     const rep = response.data.recipes;
@@ -200,8 +200,8 @@ export const getUnder45MinRecipes = createAsyncThunk(
     }
 
     const response = await axios.get<ApiResponse>(
-      // `https://localhost:3000/recipes/random?number=${number}&include-tags=${includeTags}&includeNution=${includeNutrition}`
-      `https://api.spoonacular.com/recipes/random?${queryParams.toString()}`
+      `https://localhost:3000/recipes/random?number=${number}&include-tags=${includeTags}&includeNution=${includeNutrition}`
+      // `https://api.spoonacular.com/recipes/random?${queryParams.toString()}`
     );
 
     const rep = response.data.recipes;
@@ -220,8 +220,8 @@ export const getSingleRecipe = createAsyncThunk(
     const queryParams = new URLSearchParams();
     queryParams.append("apiKey", apiKey);
     const response = await axios.get<SingleRecipeResponse>(
-      // `https://localhost:3000/recipes/${id}/information?includeNutrition=${includeNutrition}&addWineParing=${addWinePairing}&addTasteData=${addTasteData}`
-      `https://api.spoonacular.com/recipes/${id}/information?apiKey=${apiKey}&includeNutrition=${includeNutrition}&addWineParing=${addWinePairing}&addTasteData=${addTasteData}`
+      `https://localhost:3000/recipes/${id}/information?includeNutrition=${includeNutrition}&addWineParing=${addWinePairing}&addTasteData=${addTasteData}`
+      // `https://api.spoonacular.com/recipes/${id}/information?apiKey=${apiKey}&includeNutrition=${includeNutrition}&addWineParing=${addWinePairing}&addTasteData=${addTasteData}`
     );
     const rep = response.data;
     return rep;
@@ -230,11 +230,11 @@ export const getSingleRecipe = createAsyncThunk(
 export const getSimilarRecipes = createAsyncThunk(
   "recipe/getSimilarRecipes ",
   async (params: { id: number; number?: number; limitLicense?: boolean }) => {
-    const { id } = params;
+    const { id, number, limitLicense } = params;
     // const queryParams = new URLSearchParams();
     const response = await axios.get<SimilarRecipeResponse[]>(
-      // `https://localhost:3000/recipes/${id}/similar?number=${number}&limitLicense=${limitLicense}`
-      `https://api.spoonacular.com/recipes/${id}/similar?apiKey=${apiKey}`
+      `https://localhost:3000/recipes/${id}/similar?number=${number}&limitLicense=${limitLicense}`
+      // `https://api.spoonacular.com/recipes/${id}/similar?apiKey=${apiKey}`
     );
     return response.data;
   }

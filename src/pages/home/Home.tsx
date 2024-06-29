@@ -1,12 +1,10 @@
-import { staticData } from "../../ImageData";
 import recipe from "./recipe.module.css";
-import { IimageProps } from "../../interfaces/interfaces";
 import globalStyles from "../../globalcss/globalStyles.module.css";
 // import { BiPauseCircle, BiPlayCircle } from "react-icons/bi";
 import { useEffect, useState } from "react";
 import { AppDispatch, useAppSelector } from "../../store";
 import { useDispatch } from "react-redux";
-import { getRandomRecipe } from "../../features/fetchRecipes/recipeSlice";
+import { getPopularRecipes, getRandomRecipe } from "../../features/fetchRecipes/recipeSlice";
 import { Link } from "react-router-dom";
 import TrendingRecipe from "../../components/trending/TrendingRecipe";
 import { Fade } from "react-awesome-reveal";
@@ -21,11 +19,22 @@ import { BiPauseCircle, BiPlayCircle } from "react-icons/bi";
 const Home = () => {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const dispatch = useDispatch<AppDispatch>();
-  const { randomRecipe } = useAppSelector((state) => state.recipe);
+  const { randomRecipe, popularRecipes } = useAppSelector(
+    (state) => state.recipe
+  );
 
   useEffect(() => {
     dispatch(getRandomRecipe());
+       dispatch(
+         getPopularRecipes({
+           number: 50,
+         })
+       );
   }, [dispatch]);
+
+  const {  } = useAppSelector((state) => state.recipe);
+
+
 
   const handleTogglePlayPause = () => {
     setIsPlaying(!isPlaying);
@@ -67,13 +76,13 @@ const Home = () => {
               </div>
 
               <div className={recipe.hero_sliders}>
-                {staticData?.map((item: IimageProps) => (
+                {popularRecipes?.slice(0, 10).map((item) => (
                   <img
                     key={item.id}
                     className={`${recipe.slider_image} ${
                       isPlaying ? "running" : "paused"
                     }`}
-                    src={item.imageUrl}
+                    src={item.image}
                     alt={`Image ${item.id + 1}`}
                   />
                 ))}
